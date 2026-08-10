@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Splitly - Euro Summer 2024</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#767586",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#767778",
+                        "tertiary": "#5d5e60",
+                        "secondary": "#565e74",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#07006c",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container": "#e5eeff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#dae2fd",
+                        "secondary-fixed": "#dae2fd",
+                        "inverse-primary": "#c0c1ff",
+                        "background": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#e2e2e3",
+                        "on-primary-container": "#fffbff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#6063ee",
+                        "on-tertiary-container": "#040506",
+                        "on-surface-variant": "#464554",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "on-secondary-container": "#5c647a",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#494bd6",
+                        "error": "#ba1a1a",
+                        "primary": "#4648d4",
+                        "on-surface": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed": "#e1e0ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline-variant": "#c7c4d7",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed-dim": "#c0c1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "48px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "sidebar-width": "280px",
+                        "panel-right-width": "320px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "stack-xs": "4px",
+                        "margin-desktop": "40px",
+                        "container-max": "1440px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "body-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Sora', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d3e4fe; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 bg-surface-bright border-r border-outline-variant flex flex-col py-stack-lg z-40">
+<div class="px-6 mb-stack-xl">
+<h1 class="font-display-lg text-display-lg text-primary">Splitly</h1>
+<p class="font-body-md text-label-sm text-outline">Premium Plan</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Expenses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-DEFAULT border-l-4 border-primary" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Groups</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Friends</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-label-md flex items-center justify-center gap-2 shadow-lg hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+                New Group
+            </button>
+</div>
+<div class="px-4 space-y-1 border-t border-outline-variant pt-6">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="h-16 fixed top-0 right-0 left-[280px] z-30 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-gutter">
+<div class="flex items-center gap-4">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-label-md focus:ring-2 focus:ring-primary" placeholder="Search expenses..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-stack-lg">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="material-symbols-outlined hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined hover:text-primary transition-colors">history</button>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md hover:scale-95 transition-transform active:scale-90">
+                Add Expense
+            </button>
+<img class="w-10 h-10 rounded-full border-2 border-primary-fixed shadow-sm cursor-pointer" data-alt="A professional headshot of a smiling young woman with dark curly hair, wearing a clean white blazer against a soft, bright indigo-tinted studio background. The lighting is crisp and flattering, reflecting a high-end corporate lifestyle aesthetic with soft ambient depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzXLhsVdvjbQFGap6sK1jSInEXprgSaWvkDHKmrgj3gI9brQEGyM-EXfGgGyvaxpeGdkxYmECdXHJ54tXUnFu-HArj8dYJYlCN7RECGihyOYcgFhskaCjXtXp8QeVslHw5u-qvZu3USGFMIwLgERhszV2WjsUzdjVi4Mof0gdnz6rNYGSXUdkTdNb3jlkIiWdEVR8d7p4oHpnCVTR09UVkdeYWlgprgUTrdn7SJsGvZiUWMq6K28m4A"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[280px] pt-16 min-h-screen">
+<!-- Group Header Section -->
+<section class="relative h-[320px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A breathtaking panoramic view of the Amalfi Coast at sunset, featuring tiered pastel-colored buildings clinging to steep cliffs overlooking a shimmering turquoise Mediterranean sea. The sky is a blend of warm oranges, soft pinks, and deep indigos, creating a luxurious and immersive summer vacation atmosphere. High-fidelity photography style with vibrant, natural colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjT8ujJBNl_arMO2APVAgIYileDWtQ_c3PZH560bbr-pmLoPkXBuBmej_gkfWEY9JHJ8ox23I2QFbtlwNo-kg1axRFso_mV1_W2wnRA2r8eNnLxo3RIs0SzUY9CD5SIPvCePf1pzkaoMLhpSG16POtfP_jlMaNRyu_S0KNzVSHx0XBF1ZRJwW4Nnx0ZN8h7z1CpzgEmg9jIY2dfhlydUTfgQWuCUxO2hJ37hF364YQRx735bSXHxTQFg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-gutter flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div>
+<nav class="flex items-center gap-2 text-white/80 text-label-sm mb-1">
+<span>Groups</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span>Travel</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-white">Euro Summer 2024</h2>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Close-up portrait of a cheerful man with glasses in a sunlit outdoor café, modern and clean photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx2R5k36HMbr5nl4OigAg5YTc5H0azlLziNIIJTvRPxrhGW_EeuFGzU8wA9RQNnMe8495yAKnZuhVFjIIZiZ7fecIxIXNATQcX0c10paYBIU3bAhT_xTwyUbF9AakL306ZuG8Me9Rlkpsmeyb2qcQXYn3a8cN56N6ngNz4b6BX8mSdic-JG2k4ks9Jv5HS39JjOs-rUG8ZZJka7-e3lqN-uIfVXqGQo3y2Ffu-a7DNKILQ8-KCB58NbQ"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Close-up portrait of a woman with braided hair laughing at a bright summer festival, warm light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCohGAFQAgtzFLMtEtDFhc2eGU8Hs5-rG-jCIVZEsiMVlxzAV8jYNFDvGnj0WoyJ5goEFiyKuyd0oF49AjHM3Xy2Xdx3EsTEzLIo9p-StPmIesCMIiV6BV481fGDqBsKFY8QOUMd4u6SfUZ9JWdRkSn9Nc3FUNG1sa6GMGjqJSV4pMd7JSI06MEIXE7PU16GZjOnh5DyH2aO2LOqM7tp3PqcC0cAY0Jeh_SZoPR_1U1STP1Ub6TagNFXw"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Close-up portrait of a person with stylish minimalist headphones in a modern coworking space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy-OsivCCraGTufz7yCoPo5FAWnsSN7BBstVHMwVXTPfZTW0JfItJa9nhpR9QgHZIPJCtGLImBLN0Ls5EpXMwlJihVor3OkhJynP4auT0FVwynyZgKhHf2PNHx78HAT-SCLEM4O4tOhUy8FmW8LJf00Tx46ZvghwKcUEimLvB0PlOdIN70zKhho26lWKD-EN4iWF1HQpsTCORpRVcKdS54EY_eTVGbDDIovgCu4QBM3SiUyhWUmZPydg"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary flex items-center justify-center text-[10px] text-white font-bold">+4</div>
+</div>
+<span class="text-white/90 text-label-sm">7 participants • 12 days left</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white rounded-full font-label-md transition-all">
+                        Settle Up
+                    </button>
+<button class="px-6 py-3 bg-primary text-on-primary rounded-full font-label-md shadow-lg hover:scale-105 transition-all">
+                        Invite Friends
+                    </button>
+</div>
+</div>
+</section>
+<!-- Dashboard Layout -->
+<div class="p-gutter grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<!-- Left Column: Expense List -->
+<div class="col-span-12 lg:col-span-8 space-y-gutter">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md">Recent Expenses</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<!-- Expense Card 1 -->
+<div class="glass-card p-stack-lg rounded-lg flex items-center justify-between group hover:shadow-lg transition-all cursor-pointer">
+<div class="flex items-center gap-stack-lg">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h4 class="font-label-md text-body-md text-on-surface">Dinner at La Sponda</h4>
+<p class="text-label-sm text-outline">Paid by You • June 14, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-body-md text-primary">$420.00</p>
+<p class="text-label-sm text-outline">You lent $360.00</p>
+</div>
+</div>
+<!-- Expense Card 2 -->
+<div class="glass-card p-stack-lg rounded-lg flex items-center justify-between group hover:shadow-lg transition-all cursor-pointer">
+<div class="flex items-center gap-stack-lg">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">directions_boat</span>
+</div>
+<div>
+<h4 class="font-label-md text-body-md text-on-surface">Capri Boat Tour</h4>
+<p class="text-label-sm text-outline">Paid by Sarah • June 13, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-body-md text-error">$850.00</p>
+<p class="text-label-sm text-outline">You owe $121.42</p>
+</div>
+</div>
+<!-- Expense Card 3 -->
+<div class="glass-card p-stack-lg rounded-lg flex items-center justify-between group hover:shadow-lg transition-all cursor-pointer">
+<div class="flex items-center gap-stack-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<h4 class="font-label-md text-body-md text-on-surface">Airbnb Split - Positano</h4>
+<p class="text-label-sm text-outline">Paid by Marcus • June 12, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-body-md text-error">$2,400.00</p>
+<p class="text-label-sm text-outline">You owe $342.85</p>
+</div>
+</div>
+<!-- Expense Card 4 -->
+<div class="glass-card p-stack-lg rounded-lg flex items-center justify-between group hover:shadow-lg transition-all cursor-pointer">
+<div class="flex items-center gap-stack-lg">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">local_bar</span>
+</div>
+<div>
+<h4 class="font-label-md text-body-md text-on-surface">Sunset Spritzers</h4>
+<p class="text-label-sm text-outline">Paid by You • June 12, 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-body-md text-primary">$84.00</p>
+<p class="text-label-sm text-outline">You lent $72.00</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-lg text-outline font-label-md hover:border-primary hover:text-primary transition-all">
+                    Show older expenses
+                </button>
+</div>
+<!-- Right Column: Analytics & Settings -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Balance Summary Card -->
+<div class="bg-primary text-on-primary p-gutter rounded-lg shadow-xl relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+<p class="font-label-sm text-white/80 uppercase tracking-widest mb-1">Your Total Balance</p>
+<h3 class="font-display-lg text-display-lg mb-4">$1,240.50</h3>
+<div class="flex items-center gap-2 text-label-sm bg-white/20 w-fit px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>$340.00 more than last week</span>
+</div>
+</div>
+<!-- Who is owed what -->
+<div class="glass-card p-gutter rounded-lg">
+<h3 class="font-label-md text-headline-md mb-stack-md">Settlement</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a woman with braided hair laughing at a bright summer festival." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3azw9e3pGB1Sys6WCSb7SJN8_PSkqjF0WnlEww5VcPbmtmHw2krE3ojL-PDYeFDyR8MVnsKsGHGG5qPVUZkxXwPjh-yD-Y9yuHhgvUqiYCN47gnyX7KynPnM0oKbFHzj0u0uIUyFd-0s91wPazWeyV8KBM2G-dD_U0iiYs8cO56UZhprbOrMpWB71I6SORJaABYuUQvpJOQetYe8pRW9rzePu1ARNXMZxv-vFDBBviGiV4u9Tl86TRA"/>
+<div>
+<p class="font-label-md text-body-md">Sarah owes you</p>
+<p class="text-label-sm text-outline">For Dinner &amp; Drinks</p>
+</div>
+</div>
+<p class="font-label-md text-primary">$120.00</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a person with stylish minimalist headphones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3pC6umOTPpDik4U6E7gq6zNzBn9GFnjFxtZ8f1Zgb3ZxZKpCTXZXXcQDR-fAxdDqy-DFPm9I773a5dCynD90lmMfZR5uzu2XhPwt5wc9oTckKv_zIZN7gBrbmu9McGpg4WY8hN6mEO5jXIASs3TJoseoojiu66IuAgm7_7Emi-xkTDJUgx4fkgp73LpNNO6QAAAhVlXdv8L9-riMSAKGFUsgcw0wpn5XjTigSXxbCTScN53x9XBiJw"/>
+<div>
+<p class="font-label-md text-body-md">You owe Marcus</p>
+<p class="text-label-sm text-outline">For Airbnb</p>
+</div>
+</div>
+<p class="font-label-md text-error">$342.85</p>
+</div>
+<button class="w-full mt-4 text-primary font-label-md hover:underline flex items-center justify-center gap-2">
+                            See full breakdown
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Spending by Category -->
+<div class="glass-card p-gutter rounded-lg">
+<h3 class="font-label-md text-headline-md mb-stack-md">Spending</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span>Accommodation</span>
+<span class="font-bold">$2,400 (45%)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span>Dining &amp; Drinks</span>
+<span class="font-bold">$1,200 (25%)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full">
+<div class="bg-secondary h-full rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span>Transport</span>
+<span class="font-bold">$850 (20%)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full">
+<div class="bg-surface-tint h-full rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Group Settings -->
+<div class="glass-card p-gutter rounded-lg border-l-4 border-secondary">
+<h3 class="font-label-md text-headline-md mb-stack-md">Group Settings</h3>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-label-md">Edit Group Info</span>
+</div>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Currency: USD ($)</span>
+</div>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors text-error">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Leave Group</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-gutter right-gutter w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap");
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Semantic tokens, values from frontend/design/DESIGN.md (dark, "Obsidian & Ether")
+   and frontend/design/DESIGN-light.md (light, "Obsidian & Ether Light"). Positive/
+   negative are our own semantic pair -- the two source specs don't agree on which
+   raw token means "money owed to you" vs "you owe", so those are picked to match
+   what the mockup screenshots actually render (green/red) rather than the docs'
+   token names. */
+:root {
+  --color-background: #f8f9ff;
+  --color-surface: #ffffff;
+  --color-surface-container: #eff4ff;
+  --color-surface-container-high: #e5eeff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #464554;
+  --color-outline: #767586;
+  --color-outline-variant: #e2e8f0;
+  --color-primary: #4648d4;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #dae2fd;
+  --color-on-primary-container: #2f2ebe;
+  --color-secondary: #565e74;
+  --color-secondary-container: #dae2fd;
+  --color-positive: #16a34a;
+  --color-positive-bg: #dcfce7;
+  --color-negative: #dc2626;
+  --color-negative-bg: #fee2e2;
+
+  color-scheme: light;
+}
+
+:root.dark {
+  --color-background: #131315;
+  --color-surface: #131315;
+  --color-surface-container: #201f22;
+  --color-surface-container-high: #2a2a2c;
+  --color-surface-container-highest: #353437;
+  --color-on-surface: #e5e1e4;
+  --color-on-surface-variant: #c7c4d7;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+  --color-primary: #c0c1ff;
+  --color-on-primary: #1000a9;
+  --color-primary-container: #8083ff;
+  --color-on-primary-container: #0d0096;
+  --color-secondary: #4edea3;
+  --color-secondary-container: #00a572;
+  --color-positive: #4edea3;
+  --color-positive-bg: rgba(78, 222, 163, 0.15);
+  --color-negative: #ffb2b7;
+  --color-negative-bg: rgba(255, 178, 183, 0.15);
+
+  color-scheme: dark;
+}
+
+@theme {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-on-primary-container: var(--color-on-primary-container);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-positive: var(--color-positive);
+  --color-positive-bg: var(--color-positive-bg);
+  --color-negative: var(--color-negative);
+  --color-negative-bg: var(--color-negative-bg);
+
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-label: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.glass {
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-outline-variant);
+}

@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Splitly",
+    "slug": "splitly-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#131315",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#131315",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-font",
+      "expo-splash-screen",
+      "expo-sharing",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Splitly needs access to your photos to attach expense receipts.",
+          "cameraPermission": "Splitly needs access to your camera to scan expense receipts."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Splitly needs access to your camera to scan expense receipts."
+        }
+      ],
+      "@react-native-community/datetimepicker"
+    ]
+  }
+}
