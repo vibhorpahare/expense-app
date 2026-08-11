@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -10,7 +11,7 @@ import { Avatar } from "../../components/ui/Avatar";
 import { Icon } from "../../components/ui/Icon";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { SettleUpForm } from "../../components/forms/SettleUpForm";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 
@@ -104,6 +105,7 @@ function FriendRow({ friend }: { friend: Friend }) {
 
 export function FriendsScreen() {
   const navigation = useNavigation<Nav>();
+  const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
   const { data: friendsList = [], isLoading } = useQuery({ queryKey: ["friends"], queryFn: friendsApi.list });
   const [email, setEmail] = useState("");
@@ -124,10 +126,10 @@ export function FriendsScreen() {
       <FlatList
         data={friendsList}
         keyExtractor={(f) => f.id}
-        contentContainerStyle={{ paddingBottom: 140 }}
+        contentContainerStyle={{ paddingBottom: TAB_BAR_CLEARANCE }}
         ListHeaderComponent={
           <>
-            <View style={styles.header}>
+            <View style={[styles.header, { paddingTop: insets.top + spacing.md }]}>
               <Text style={[typography.displayLgMobile, { color: colors.primary, fontSize: 28 }]}>Friends</Text>
               <Pressable style={styles.groupsToggle} onPress={() => navigation.navigate("Groups")}>
                 <Icon name="group" size={18} color={colors.onSurfaceVariant} />

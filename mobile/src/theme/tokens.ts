@@ -80,3 +80,8 @@ export const spacing = {
   containerMargin: 24,
   gutter: 16,
 } as const;
+
+// BottomNav floats at `bottom: spacing.xl` (32) with a 64px pill height --
+// scrollable screen content needs at least this much bottom clearance so the
+// floating nav never overlaps the last item (e.g. Account's Log out button).
+export const TAB_BAR_CLEARANCE = 140;

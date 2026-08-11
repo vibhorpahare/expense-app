@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
@@ -10,7 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Avatar } from "../../components/ui/Avatar";
 import { Icon } from "../../components/ui/Icon";
 import { EmptyState } from "../../components/ui/EmptyState";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 
@@ -18,6 +19,7 @@ type Nav = NativeStackNavigationProp<GroupsStackParamList, "Groups">;
 
 export function GroupsScreen() {
   const navigation = useNavigation<Nav>();
+  const insets = useSafeAreaInsets();
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const { data: groupsList = [], isLoading } = useQuery({ queryKey: ["groups"], queryFn: () => groupsApi.list() });
@@ -57,10 +59,10 @@ export function GroupsScreen() {
       <FlatList
         data={groupsList}
         keyExtractor={(g) => g.id}
-        contentContainerStyle={{ paddingBottom: 140 }}
+        contentContainerStyle={{ paddingBottom: TAB_BAR_CLEARANCE }}
         ListHeaderComponent={
           <>
-            <View style={styles.header}>
+            <View style={[styles.header, { paddingTop: insets.top + spacing.md }]}>
               <Text style={[typography.displayLgMobile, { color: colors.primary, fontSize: 28 }]}>Groups</Text>
               <View style={{ flexDirection: "row", gap: spacing.sm }}>
                 <Pressable

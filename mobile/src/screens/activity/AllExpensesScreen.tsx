@@ -8,7 +8,7 @@ import { useCategories } from "../../hooks/useCategories";
 import type { ActivityStackParamList } from "../../navigation/types";
 import { Icon } from "../../components/ui/Icon";
 import { EmptyState } from "../../components/ui/EmptyState";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 import { formatDateTime } from "../../lib/datetime";
@@ -59,7 +59,7 @@ export function AllExpensesScreen() {
       <FlatList
         data={expenseList}
         keyExtractor={(e) => e.id}
-        contentContainerStyle={{ paddingBottom: spacing.xxl }}
+        contentContainerStyle={{ paddingBottom: TAB_BAR_CLEARANCE }}
         ListHeaderComponent={
           <>
             <View style={styles.filterHeader}>

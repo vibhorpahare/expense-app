@@ -7,7 +7,7 @@ import type { GroupsStackParamList } from "../../navigation/types";
 import { groups as groupsApi } from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import { Avatar } from "../../components/ui/Avatar";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 
 type Props = NativeStackScreenProps<GroupsStackParamList, "GroupSettings">;
@@ -90,7 +90,7 @@ export function GroupSettingsScreen({ route, navigation }: Props) {
   };
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin }}>
+    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: TAB_BAR_CLEARANCE }}>
       {!!error && <Text style={[typography.bodyMd, { color: colors.error, marginBottom: spacing.md }]}>{error}</Text>}
 
       <View style={styles.avatarRow}>

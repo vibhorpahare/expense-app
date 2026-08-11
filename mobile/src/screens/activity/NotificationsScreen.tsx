@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { notifications as notificationsApi } from "../../api";
 import { EmptyState } from "../../components/ui/EmptyState";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 
 // Notification content is server-generated HTML from a small safe-tag
@@ -28,7 +28,7 @@ export function NotificationsScreen() {
       <FlatList
         data={data?.notifications ?? []}
         keyExtractor={(n) => n.id}
-        contentContainerStyle={{ padding: spacing.containerMargin }}
+        contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: TAB_BAR_CLEARANCE }}
         renderItem={({ item: n }) => (
           <View style={styles.row}>
             <Text style={[typography.bodyMd, { color: colors.onSurface }]}>{stripHtml(n.content)}</Text>

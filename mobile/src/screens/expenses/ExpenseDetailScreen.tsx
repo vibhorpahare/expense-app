@@ -8,7 +8,7 @@ import { comments as commentsApi, expenses as expensesApi } from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import { Icon } from "../../components/ui/Icon";
 import { ScreenSkeleton } from "../../components/ui/Skeletons";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 import { formatDateTime } from "../../lib/datetime";
@@ -122,7 +122,7 @@ export function ExpenseDetailScreen({ route, navigation }: Props) {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin }}>
+    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: TAB_BAR_CLEARANCE }}>
       <View style={styles.card}>
         {!!error && <Text style={[typography.bodyMd, { color: colors.error, marginBottom: spacing.sm }]}>{error}</Text>}
 

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -11,7 +12,7 @@ import { GlassCard } from "../../components/ui/GlassCard";
 import { MeshBackground } from "../../components/ui/MeshBackground";
 import { Avatar } from "../../components/ui/Avatar";
 import { Icon } from "../../components/ui/Icon";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 import { formatDateTime } from "../../lib/datetime";
@@ -23,6 +24,7 @@ type Nav = CompositeNavigationProp<
 
 export function DashboardScreen() {
   const navigation = useNavigation<Nav>();
+  const insets = useSafeAreaInsets();
 
   const summaryQuery = useQuery({ queryKey: ["dashboard"], queryFn: dashboard.summary });
   const friendsQuery = useQuery({ queryKey: ["friends"], queryFn: friends.list });
@@ -68,10 +70,10 @@ export function DashboardScreen() {
         data={recentExpenses.slice(0, 5)}
         keyExtractor={(item) => item.id}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />}
-        contentContainerStyle={{ paddingBottom: 140 }}
+        contentContainerStyle={{ paddingBottom: TAB_BAR_CLEARANCE }}
         ListHeaderComponent={
           <>
-            <View style={styles.header}>
+            <View style={[styles.header, { paddingTop: insets.top + spacing.md }]}>
               <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
                 <Text style={[typography.displayLgMobile, { color: colors.primary, fontSize: 24 }]}>Splitly</Text>
               </View>

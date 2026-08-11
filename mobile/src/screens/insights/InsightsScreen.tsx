@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import { expenses as expensesApi } from "../../api";
 import { useCategories } from "../../hooks/useCategories";
@@ -7,7 +8,7 @@ import { GlassCard } from "../../components/ui/GlassCard";
 import { Icon } from "../../components/ui/Icon";
 import { ProgressBar } from "../../components/ui/ProgressBar";
 import { AreaChart, type AreaChartPoint } from "../../components/ui/AreaChart";
-import { colors, spacing } from "../../theme/tokens";
+import { colors, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 import { formatMoney } from "../../lib/currency";
 
@@ -16,6 +17,7 @@ function monthKey(d: Date) {
 }
 
 export function InsightsScreen() {
+  const insets = useSafeAreaInsets();
   const { data: expenseList = [], isLoading } = useQuery({
     queryKey: ["expenses", "insights"],
     queryFn: () => expensesApi.list({ limit: 300 }),
@@ -84,7 +86,14 @@ export function InsightsScreen() {
   const avgExpense = expenseCount > 0 ? thisMonth / expenseCount : 0;
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: spacing.xxl }}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={{
+        padding: spacing.containerMargin,
+        paddingTop: insets.top + spacing.md,
+        paddingBottom: TAB_BAR_CLEARANCE,
+      }}
+    >
       <Text style={[typography.displayLgMobile, { color: colors.primary, fontSize: 28, marginBottom: spacing.lg }]}>Insights</Text>
 
       <GlassCard style={{ padding: spacing.lg, marginBottom: spacing.lg }}>

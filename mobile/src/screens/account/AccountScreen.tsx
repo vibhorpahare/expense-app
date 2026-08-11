@@ -5,7 +5,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useAuth } from "../../context/AuthContext";
 import { users as usersApi } from "../../api";
 import { Avatar } from "../../components/ui/Avatar";
-import { colors, radius, spacing } from "../../theme/tokens";
+import { colors, radius, spacing, TAB_BAR_CLEARANCE } from "../../theme/tokens";
 import { typography } from "../../theme/typography";
 
 const NOTIFICATION_LABELS: Record<string, string> = {
@@ -67,7 +67,7 @@ export function AccountScreen() {
   };
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: spacing.xxl }}>
+    <ScrollView style={styles.screen} contentContainerStyle={{ padding: spacing.containerMargin, paddingBottom: TAB_BAR_CLEARANCE }}>
       <View style={styles.card}>
         <View style={styles.avatarRow}>
           <Avatar uri={user.avatar_url} name={user.first_name} size={64} />
